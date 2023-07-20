@@ -113,6 +113,6 @@ class printArray {
             if (i != newLength - 1)
                 System.out.print(",");
         }
-        System.out.print('\n');
+        System.out.println();
     }
 }
