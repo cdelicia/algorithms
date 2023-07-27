@@ -8,29 +8,23 @@ An input string is valid if:
     3. Every close bracket has a corresponding open bracket of the same type.
 ****************************************************************************** */
 
-public class validParentheses {	
-    
+public class validParentheses {
+
     public static void main(String[] args) {
+        //only parentheses {} or [] or (), no other characters. String length from 0 to 10000;
 
-            Solution x = new Solution();
-            //only parentheses {} or [] or (), no other characters. String length from 0 to 10000;
-
-            System.out.println("true  - " + x.isValid("{}[]()"));
-            System.out.println("true  - " + x.isValid("{[()]}"));
-            System.out.println("true  - " + x.isValid("()"));
-            System.out.println("true  - " + x.isValid("({(({})([()]){()})([()]{})[()]})"));
-            System.out.println("false - " + x.isValid("[[]"));
-            System.out.println("false - " + x.isValid("{{()}}}"));
-            System.out.println("false - " + x.isValid("}{"));
-            System.out.println("false - " + x.isValid("{")); 
-            System.out.println("false - " + x.isValid(""));
-            
+        System.out.println("true  - " + isValid("{}[]()"));
+        System.out.println("true  - " + isValid("{[()]}"));
+        System.out.println("true  - " + isValid("()"));
+        System.out.println("true  - " + isValid("({(({})([()]){()})([()]{})[()]})"));
+        System.out.println("false - " + isValid("[[]"));
+        System.out.println("false - " + isValid("{{()}}}"));
+        System.out.println("false - " + isValid("}{"));
+        System.out.println("false - " + isValid("{"));
+        System.out.println("false - " + isValid(""));
     }
-}
 
-
-class Solution {
-    public boolean isValid(String str) {
+    public static boolean isValid(String str) {
         int i = 0;
         int len = str.length();
         int char1, char2;
@@ -50,7 +44,7 @@ class Solution {
                         i--;
                 }
                 else
-                    i++;            
+                    i++;
             }
             if (i == 0)
                 return true;
