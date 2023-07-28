@@ -5,9 +5,9 @@
 * Note that s may contain leading or trailing spaces or multiple spaces between two words. 
 * The returned string should only have a single space separating the words. */
 
+package reverse.words;
 
-public class ReverseWordsInAString {
-
+public class ReverseWords {
     public static void main(String[] args) {
         System.out.println("tst1="+reverseWords("the sky is blue") +'$');
         System.out.println("tst2="+reverseWords("  hello world  ") +'$');
@@ -19,50 +19,17 @@ public class ReverseWordsInAString {
         System.out.println("tst8="+reverseWords("\t\t") +'$');
         System.out.println("tst9="+reverseWords("\n") +'$');
         System.out.println("tst10="+reverseWords("               ") +'$');
-
     }
 
     public static String reverseWords(String s) {
-        s = s.trim();
-        int length = s.length();
-        int wordLen;
-        int start;
-
-        s = reverse(s, -1, length);
-        for (int i = 0; i < length; i++) {
-            start = i;
-            wordLen = 0;
-            while (i < length && s.charAt(i) != ' ') {
-                wordLen++;
-                i++;
-            }
-            s = reverse(s, start-1, start+wordLen);
+        s = s.trim().replaceAll("\\s+", " ");
+        String[] arr = s.split(" ");
+        String newStr = "";
+        for (int index = arr.length-1; index >= 0; index--) {
+            newStr = newStr + arr[index];
+            if (index > 0)
+                newStr = newStr + ' ';
         }
-        return skipSpaces(s);
-    }
-
-    private static String reverse(String s, int start, int end) {
-        char temp;
-        while (++start < --end) {
-            temp = s.charAt(start);
-            s = s.substring(0,start) + s.charAt(end) + s.substring(start+1);
-            s = s.substring(0,end) + temp + s.substring(end+1);
-        }
-        return s;
-    }
-
-    private static String skipSpaces(String s) {
-        int length = s.length();
-        int currIndex = 0;
-
-        while (currIndex < length) {
-            if (currIndex < length - 1 && s.charAt(currIndex) == ' ' && s.charAt(currIndex+1) == ' ') {
-                s = s.substring(0, currIndex) + s.substring(currIndex + 1);
-                length = s.length();
-            }
-            else
-                currIndex++;
-        }
-        return s;
+        return newStr;
     }
 }
