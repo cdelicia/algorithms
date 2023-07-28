@@ -3,6 +3,7 @@
  unique element appears only once. Then return the number of unique elements in nums.
  Constraints:  1 <= length <= 10000000
                1 <= variety <= 2147483647
+               of course, Collectioins are not allowed
  ************************************************************************************/
 
 package remove.duplicates;
