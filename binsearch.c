@@ -3,7 +3,7 @@
 
 #define INDEX 1000
 #define MAX 1000
-#define MAXLINE 19
+#define MAXLINE 20
 
 int binsearch(int x, int v[], int n);
 void getnumber(char s[], int lim);
