@@ -57,19 +57,17 @@ void put_blocks(int size, int floor, int width, int step) {
 	int door = 1 + 2 * ((floor - 1) / 2);
 	
 	while (++pos < width) {
-		if (pos == 0)
+		if (pos == 0) {
 			ft_putchar('/');
-		else if (pos == width - 1)
+		} else if (pos == width - 1) {
 			ft_putchar('\\');
-		else {
-			if (floor == size && pos >= (width - door) / 2
-					&& pos < (width + door) / 2 && 2 + floor - step <= door)
-				if (door >= 5 && step == 2 + floor - door / 2 - 1
-						&& pos == (width + door) / 2 - 2)
+		} else {
+			if (floor == size && pos >= (width - door)/2 && pos < (width + door)/2 && (2 + floor - step) <= door) {
+				if (door >= 5 && step == 2 + floor - door / 2 - 1 && pos == (width + door) / 2 - 2) {
 					ft_putchar('$');
-				else
+				} else
 					ft_putchar('|');
-			else
+			} else
 				ft_putchar('*');
 		}
 	}
